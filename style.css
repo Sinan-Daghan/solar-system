@@ -1,0 +1,156 @@
+:root {
+    background-color: rgb(46, 46, 46);
+    overflow-x: hidden;
+    /* tx means translate x */
+    /* d means diameter */
+    /* s means number of seconds of the animation */
+    --tx-white: 350px;
+    --d-white: 50px;
+    --s-white: 5s;
+
+    --tx-red: 130px;
+    --d-red: 30px;
+    --s-red: 6s;
+
+    --tx-blue: 250px;
+    --d-blue: 40px;
+    --s-blue: 5s;
+
+    --tx-grey: 300px;
+    --d-grey: 50px;
+    --s-grey: 5s;
+
+    --tx-moon-grey: 100px;
+    --d-moon-grey: 30px;
+    --s-moon-grey: 5s;
+
+    --tx-moon-blue-one: 100px;
+    --d-moon-blue-one: 20px;
+    --s-moon-blue-one: 5s;
+
+    --tx-moon-blue-two: 80px;
+    --d-moon-blue-two: 20px;
+    --s-moon-blue-two: 5s;
+
+    --d-sun: 150px;
+}
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+main {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+div {
+    position: absolute;
+    transform-origin: 0 0;
+    border-radius: 50%;
+    outline-offset: 12px;
+}
+header {
+    background-color: rgb(105, 105, 105);
+    position: absolute;
+    height: fit-content;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 5px;
+}
+header > * {
+    min-height: 3vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-height: 100%;
+}
+strong {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.sun {
+    width: var(--d-sun);
+    height: var(--d-sun);
+    background-color: yellow;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes animationWhite {
+    from {transform: rotate(300deg) translateX(var(--tx-white)) translate(-50%, -50%);}
+    to {transform: rotate(660deg) translateX(var(--tx-white)) translate(-50%, -50%);}
+}
+.white {
+    background-color: white;
+    animation: animationWhite var(--s-white) linear infinite;
+    width: var(--d-white);
+    height: var(--d-white);
+}
+
+@keyframes animationRed {
+    from {transform: rotate(90deg) translateX(var(--tx-red)) translate(-50%, -50%);}
+    to {transform: rotate(450deg) translateX(var(--tx-red)) translate(-50%, -50%);}
+}
+.red {
+    background-color: red;
+    animation: animationRed var(--s-red) linear infinite;
+    width: var(--d-red);
+    height: var(--d-red);
+}
+
+@keyframes animationBlue {
+    from {transform: rotate(60deg) translateX(var(--tx-blue)) translate(-50%, -50%);}
+    to {transform: rotate(420deg) translateX(var(--tx-blue)) translate(-50%, -50%);}
+}
+.blue {
+    background-color: blue;
+    animation: animationBlue var(--s-blue) linear infinite;
+    width: var(--d-blue);
+    height: var(--d-blue);
+}
+
+@keyframes animationGrey {
+    from {transform: rotate(170deg) translateX(var(--tx-grey)) translate(-50%, -50%);}
+    to {transform: rotate(530deg) translateX(var(--tx-grey)) translate(-50%, -50%);}
+}
+.grey {
+    background-color: grey;
+    animation: animationGrey var(--s-grey) linear infinite;
+    width: var(--d-grey);
+    height: var(--d-grey);
+}
+
+@keyframes animationMoonGrey {
+    from {transform: rotate(170deg) translateX(var(--tx-moon-grey)) translate(-50%, -50%);}
+    to {transform: rotate(530deg) translateX(var(--tx-moon-grey)) translate(-50%, -50%);}
+}
+.moon-grey {
+    background-color: grey;
+    animation: animationMoonGrey var(--s-moon-grey) linear infinite;
+    width: var(--d-moon-grey);
+    height: var(--d-moon-grey);
+}
+
+@keyframes animationMoonBlueOne {
+    from {transform: rotate(170deg) translateX(var(--tx-moon-blue-one)) translate(-50%, -50%);}
+    to {transform: rotate(530deg) translateX(var(--tx-moon-blue-one)) translate(-50%, -50%);}
+}
+.moon-blue-one {
+    background-color: grey;
+    animation: animationMoonBlueOne var(--s-moon-blue-one) linear infinite;
+    width: var(--d-moon-blue-one);
+    height: var(--d-moon-blue-one);
+}
+
+@keyframes animationMoonBlueTwo {
+    from {transform: rotate(180deg) translateX(var(--tx-moon-blue-two)) translate(-50%, -50%);}
+    to {transform: rotate(540deg) translateX(var(--tx-moon-blue-two)) translate(-50%, -50%);}
+}
+.moon-blue-two {
+    background-color: grey;
+    animation: animationMoonBlueTwo var(--s-moon-blue-two) linear infinite;
+    width: var(--d-moon-blue-two);
+    height: var(--d-moon-blue-two);
+}
