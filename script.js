@@ -22,13 +22,10 @@ let create_slider = (name, parent, min, max, value, step) => {
 
     return slider;
 };
-
-let rootStyles = getComputedStyle(document.documentElement);
+let rootElement = document.documentElement;
+let rootStyles = getComputedStyle(rootElement);
 let header = document.querySelector('header');
 let css_var_names = ['white', 'red', 'blue', 'grey', 'moon-grey', 'moon-blue-one', 'moon-blue-two'];
-
-let btns = [];
-let celestial_bodies = [];
 
 // Function that create a slider and label,
 // append them to the header,
@@ -37,7 +34,6 @@ let celestial_bodies = [];
 let create_slider_and_label_for_css_var = (css_var_prefix, css_var_name, css_var_unit, min, max, step) => {
     let current_value = rootStyles.getPropertyValue(`--${css_var_prefix}-${css_var_name}`);
     let slider = create_slider(`${css_var_unit}-${css_var_name}`, header, min, max, current_value, step);
-    console.log(`--${css_var_prefix}-${css_var_name}` + ' ' + current_value);
     let slider_label = document.createElement('label');
     slider_label.innerText = current_value;
 
@@ -45,10 +41,8 @@ let create_slider_and_label_for_css_var = (css_var_prefix, css_var_name, css_var
     header.appendChild(slider_label);
 
     slider.addEventListener('input', () => {
-        document.documentElement.style.setProperty(`--${css_var_prefix}-${css_var_name}`, slider.value + css_var_unit)
+        rootElement.style.setProperty(`--${css_var_prefix}-${css_var_name}`, slider.value + css_var_unit);
         slider_label.innerText = slider.value + css_var_unit;
-        console.log(slider_label.innerText);
-        console.log(`--${css_var_prefix}-${css_var_name}`);
     })
 }
 
@@ -68,9 +62,6 @@ css_var_names.forEach(css_var_name => {
             btn.style.border = 'none';
         }
     })
-
-    celestial_bodies.push(celestial_body);
-    btns.push(btn);
 
     header.appendChild(btn);
     create_slider_and_label_for_css_var('tx',  css_var_name, 'px', 0, 1000, 1);
